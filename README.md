@@ -15,6 +15,13 @@ brew tap adrielakak/tap
 brew install --cask gravitynotch
 ```
 
+GravityNotch is not notarized by Apple. If macOS blocks the first launch, open
+**System Settings > Privacy & Security** and click **Open Anyway**, or run:
+
+```bash
+xattr -cr /Applications/GravityNotch.app
+```
+
 ## Update
 
 GravityNotch updates itself through Sparkle. You can also run:

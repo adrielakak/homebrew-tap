@@ -2,8 +2,7 @@ cask "gravitynotch" do
   version "1.2.8"
   sha256 "f45746451a0cce9701a36fb3011710a4e919752f02c6b8c0c2477071561a597e"
 
-  url "https://github.com/adrielakak/GravityNotch/releases/download/gravitynotch-v#{version}/GravityNotch.dmg",
-      verified: "github.com/adrielakak/GravityNotch/"
+  url "https://github.com/adrielakak/GravityNotch/releases/download/gravitynotch-v#{version}/GravityNotch.dmg"
   name "GravityNotch"
   desc "Dynamic Island style control center for the notch"
   homepage "https://adrielakak.github.io/GravityNotch/"
@@ -14,15 +13,9 @@ cask "gravitynotch" do
   end
 
   auto_updates true
-  depends_on macos: ">= :sonoma"
+  depends_on macos: :sonoma
 
   app "GravityNotch.app"
-
-  postflight do
-    system_command "/usr/bin/xattr",
-                   args:         ["-dr", "com.apple.quarantine", "#{appdir}/GravityNotch.app"],
-                   must_succeed: false
-  end
 
   uninstall quit: "theboringteam.boringnotch"
 
@@ -37,10 +30,12 @@ cask "gravitynotch" do
   ]
 
   caveats <<~EOS
-    GravityNotch is ad hoc signed and not notarized by Apple. This cask removes
-    the quarantine attribute after install so the app can launch.
+    GravityNotch is open source and not notarized by Apple. If macOS blocks the
+    first launch, open System Settings > Privacy & Security and click
+    "Open Anyway", or run:
+      xattr -cr #{appdir}/GravityNotch.app
 
-    On first launch, grant Accessibility access in
+    Then grant Accessibility access in
     System Settings > Privacy & Security > Accessibility.
   EOS
 end

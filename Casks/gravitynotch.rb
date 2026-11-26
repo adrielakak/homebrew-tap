@@ -1,6 +1,6 @@
 cask "gravitynotch" do
-  version "1.6.0"
-  sha256 "4a07f26ffcb673dc296115db85a08e8681256bb101c61e345d9330a5f3385cc3"
+  version "1.6.1"
+  sha256 "4d00fee83d6c5b87ec18867bba2b434467d12db65583273f370c7683766e81b2"
 
   url "https://github.com/adrielakak/GravityNotch/releases/download/gravitynotch-v#{version}/GravityNotch.dmg"
   name "GravityNotch"
